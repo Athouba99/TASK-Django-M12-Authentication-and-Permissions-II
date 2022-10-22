@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from .forms import Registration 
-from django.contrib import login  
+from django.contrib.auth import login  
+from django.contrib.auth import logout 
 # Create your views here.
 
 def register_user(request):
@@ -19,4 +20,8 @@ def register_user(request):
     context = {
         "form": form,
     }
-    return render(request, "register.html", context)      
+    return render(request, "register.html", context)  
+
+def logout_user(request):
+    logout (request) 
+    return redirect ("success-page")

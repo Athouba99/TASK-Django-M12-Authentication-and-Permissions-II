@@ -6,12 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <nav> 
              <a link href="shared/templates/home.html" rel=""> Shared movies </a>
-            <a link href="movies/template/movie_list.html" rel=""> movies</a>
-        </nav>
+             <a link href="movies/template/movie_list.html" rel=""> movies</a>
+                    
+            </nav>
    
     <title>Document</title>
 </head>
 <body>
-    
+    <nav>
+        {% if request.user.is_authenticated %}
+        <a href="{% url 'logout' %}" class="btn btn-info"> logout </a>
+        {%= render 'shared/templates/home.html', 'movies/templates/movie_list.html' %} 
+        {% else %}
+        <a href="{% url 'login' %}" class="btn btn-primry"> login </a>
+        <a href="{% url 'register' %} " class="btn btn-success"> Register </a>
+        {% endif %}
+    </nav>
 </body>
 </html>
