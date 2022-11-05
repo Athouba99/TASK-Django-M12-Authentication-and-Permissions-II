@@ -5,7 +5,12 @@ from django.shortcuts import redirect, render
 from movies.forms import MovieForm
 from movies.models import Movie
 
+from django.contrib.auth.decorators import login_required
 
+@login_required
+def create_movie(resquest):
+    ...
+    
 def get_movies(request ):
     movies = Movie.objects.all()
     context = {

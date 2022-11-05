@@ -12,15 +12,28 @@
    
     <title>Registration page</title>
 </head>
+
 <body>
-    <nav>
+    <div class="container"> <h2>Register</h2>
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            {{ form }}
+        </form>
+        
         {% if request.user.is_authenticated %}
+        <li>
         <a href="{% url 'logout' %}" class="btn btn-info"> logout </a>
-        {%= render 'shared/templates/home.html', 'movies/templates/movie_list.html' %} 
+        {% render 'shared/templates/home.html', 'movies/templates/movie_list.html' %} 
+        </li>
+
         {% else %}
+        <li>
         <a href="{% url 'login' %}" class="btn btn-primry"> login </a>
+        </li>
+        <li>
         <a href="{% url 'register' %} " class="btn btn-success"> Register </a>
+        </li>
         {% endif %}
-    </nav>
+    </div>
 </body>
 </html>

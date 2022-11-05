@@ -1,22 +1,17 @@
-from dataclasses import field
-from tkinter import Widget
 from django import forms
 from django.contrib.auth import get_user_model 
-from django.db import models
-from pkg_resources import require
+from django.contrib.auth.mixins import LoginRequiredMixin
 
+User = get_user_model()
 
-user = get_user_model()
-
-class Registration(forms.ModelForm):
+class RegistrationForm(forms.ModelForm):
     class Meta:
-        model = user
+        model = User
         field = ["username", "first_name", "last_name", "email", "password"]
-        widgets = {  "password": forms.PasswordInput(),
-        }
+        widgets = {  "password": forms.PasswordInput(),}
 
 
-class Login(forms.Form):
-    username = models.CharField(required=True)
-    password = models.CharField(required=True, widget=forms.PasswordInput())
+class LoginForm(forms.Form):
+    username = forms.CharField(required=True)
+    password = forms.CharField(required=True, widget=forms.PasswordInput())
     
