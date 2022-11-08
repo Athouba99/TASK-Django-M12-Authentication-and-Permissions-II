@@ -40,4 +40,6 @@ def login_user(request):
 
 @login_required
 def create_movie(request):
-    ...
+    ... 
+
+    
