@@ -35,8 +35,8 @@ def login_user(request):
             if auth_user is not None:
                 login(request, auth_user)
                 return redirect("home")
-    context = {"form":form}
-    return render (request, "longin.html", context)
+    context = {"form":form, }
+    return render(request, "login.html", context)
 
 @login_required
 def create_movie(request):

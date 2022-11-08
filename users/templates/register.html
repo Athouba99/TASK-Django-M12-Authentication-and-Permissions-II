@@ -23,16 +23,17 @@
         {% if request.user.is_authenticated %}
         <li>
         <a href="{% url 'logout' %}" class="btn btn-info"> logout </a>
-        
         </li>
 
         {% else %}
-        <li>
-        <a href="{% url 'login' %}" class="btn btn-primry"> login </a>
-        </li>
+
         <li>
             <a class="nav-link" href="{% url 'register' %}"> Register </a>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}"> login </a>
+          </li>
         {% endif %}
     </div>
 </body>
