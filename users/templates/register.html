@@ -23,7 +23,7 @@
         {% if request.user.is_authenticated %}
         <li>
         <a href="{% url 'logout' %}" class="btn btn-info"> logout </a>
-        {% render 'shared/templates/home.html', 'movies/templates/movie_list.html' %} 
+        
         </li>
 
         {% else %}
@@ -31,7 +31,7 @@
         <a href="{% url 'login' %}" class="btn btn-primry"> login </a>
         </li>
         <li>
-        <a href="{% url 'register' %} " class="btn btn-success"> Register </a>
+            <a class="nav-link" href="{% url 'register' %}"> Register </a>
         </li>
         {% endif %}
     </div>

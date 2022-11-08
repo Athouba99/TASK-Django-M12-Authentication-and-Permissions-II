@@ -79,7 +79,10 @@
         {% endif %}
       </article>
     </main>
-
+    
+    {% if user.is_authenticated %}
+    <a class="btn btn-link" href="{% url 'create-movie' %}"> add movie  </a>
+    {% endif %}
     <footer class="mt-auto text-center py-2">
       Awesome movies since like forever!
     </footer>

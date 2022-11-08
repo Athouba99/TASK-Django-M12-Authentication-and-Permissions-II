@@ -2,6 +2,7 @@ from multiprocessing import context
 from django.shortcuts import render,redirect 
 from users import forms  
 from django.contrib.auth import login,authenticate,logout   
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def register_user(request):
@@ -34,5 +35,9 @@ def login_user(request):
             if auth_user is not None:
                 login(request, auth_user)
                 return redirect("home")
-    context = {"form":form, }
+    context = {"form":form}
     return render (request, "longin.html", context)
+
+@login_required
+def create_movie(request):
+    ...
